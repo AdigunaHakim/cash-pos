@@ -1,37 +1,25 @@
-use rand::Rng;
-use std::cmp::Ordering;
-use std::io;
-
 fn main() {
-    println!("Guess the number!");
+    //mutable
+    let mut x = 5_000;
+    println!("The value of x is: {}", x);
+    x = 6_000;
+    println!("The value of x is: {}", x);
 
-    let secret_number = rand::thread_rng().gen_range(1, 101);
+    //shadowing
+    let x = 5;
 
-    println!("The secret number is: {}", secret_number);
+    println!("The value of x is: {}", x);
 
-    loop {
-        println!("Please input your guess.");
+    let x = x + 1;
 
-        let mut guess = String::new();
+    println!("The value of x is: {}", x);
 
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
+    let x = x * 2;
 
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
+    println!("The value of x is: {}", x);
 
-        println!("You guessed: {}", guess);
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!");
-                break;
-            }
-        }
-    }
+    //shadowing different data type
+    let spaces = "   ";
+    let spaces = spaces.len();
+    println!("The value of space is: {}", spaces);
 }
