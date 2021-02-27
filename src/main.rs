@@ -1,37 +1,24 @@
-use rand::Rng;
-use std::cmp::Ordering;
-use std::io;
-
 fn main() {
-    println!("Guess the number!");
+    let x = 6;
+    let y = {
+        let x = 3;
+        x
+    };
 
-    let secret_number = rand::thread_rng().gen_range(1, 101);
+    another_function(x, y);
+    println!("The value of function five() is {}", five());
+    println!("The value of function plus_one() is {}", plus_one(five()));
+}
 
-    println!("The secret number is: {}", secret_number);
+fn another_function(x: i32, y: i32) {
+    println!("The value of x is: {}", x);
+    println!("The value of y is: {}", y);
+}
 
-    loop {
-        println!("Please input your guess.");
+fn five() -> i32 {
+    5
+}
 
-        let mut guess = String::new();
-
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
-        println!("You guessed: {}", guess);
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!");
-                break;
-            }
-        }
-    }
+fn plus_one(x: i32) -> i32  {
+    x + 1
 }
