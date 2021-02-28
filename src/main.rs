@@ -12,9 +12,10 @@ fn main() {
     }
     println!("The value of func statement_if is: {}", do_if());
     do_loop();
+    println!("The value of func do_loop_with_value is: {}", do_loop_with_value());
 }
 
-//function  with return value
+//function with return value
 fn do_if() -> i32 {
     let condition = true;
 
@@ -34,4 +35,19 @@ fn do_loop(){
             break;
         }
     }
+}
+
+fn do_loop_with_value() -> i32{
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2
+        }
+    };
+
+    println!("The result is {}", result);
+    result
 }
