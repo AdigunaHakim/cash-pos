@@ -15,6 +15,8 @@ fn main() {
     do_loop();
     println!("The value of func do_loop_with_value is: {}", do_loop_with_value());
     do_while();
+    do_foreach();
+    do_foreach_range();
 }
 
 //function with return value
@@ -56,14 +58,31 @@ fn do_loop_with_value() -> i32{
     result
 }
 
-//do while load value of arrays
+//do while to load value of arrays
 fn do_while() {
-    let a = [10, 20, 30, 40, 50];
+    let arrays = [10, 20, 30, 40, 50];
     let mut index = 0;
 
     while index < 5 {
-        println!("The value of arrays index[{}] is: {}", index, a[index]);
+        println!("The value of arrays index[{}] is: {}", index, arrays[index]);
 
         index += 1;
     }
+}
+
+//do for each to load value of arrays
+fn do_foreach() {
+    let arrays = &[10, 20, 30, 40, 50];
+
+    for element in arrays.iter() {
+        println!("The value of element is: {}", element);
+    }
+}
+
+//do for each to load value of range sequence
+fn do_foreach_range() {
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!!");
 }
