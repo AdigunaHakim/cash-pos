@@ -10,9 +10,11 @@ fn main() {
     } else {
         println!("number is not divisible by 4, 3, or 2");
     }
+
     println!("The value of func statement_if is: {}", do_if());
     do_loop();
     println!("The value of func do_loop_with_value is: {}", do_loop_with_value());
+    do_while();
 }
 
 //function with return value
@@ -26,6 +28,7 @@ fn do_if() -> i32 {
     number
 }
 
+//function loop
 fn do_loop(){
     let mut x = 0;
     loop {
@@ -37,6 +40,7 @@ fn do_loop(){
     }
 }
 
+//function loop with return value
 fn do_loop_with_value() -> i32{
     let mut counter = 0;
 
@@ -50,4 +54,16 @@ fn do_loop_with_value() -> i32{
 
     println!("The result is {}", result);
     result
+}
+
+//do while load value of arrays
+fn do_while() {
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("The value of arrays index[{}] is: {}", index, a[index]);
+
+        index += 1;
+    }
 }
