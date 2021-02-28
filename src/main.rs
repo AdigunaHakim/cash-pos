@@ -10,11 +10,12 @@ fn main() {
     } else {
         println!("number is not divisible by 4, 3, or 2");
     }
-    println!("The value of func statement_if is: {}", statement_if());
+    println!("The value of func statement_if is: {}", do_if());
+    do_loop();
 }
 
 //function  with return value
-fn statement_if() -> i32 {
+fn do_if() -> i32 {
     let condition = true;
 
     //assign with if expresion
@@ -22,4 +23,15 @@ fn statement_if() -> i32 {
 
     println!("The value of number is: {}", number);
     number
+}
+
+fn do_loop(){
+    let mut x = 0;
+    loop {
+        println!("Do loop again! {}", x);
+        x += 1;
+        if x > 10 {
+            break;
+        }
+    }
 }
